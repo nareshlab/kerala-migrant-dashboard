@@ -1,0 +1,535 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #f8fafc;
+  --foreground: #1e293b;
+  --card: #ffffff;
+  --card-foreground: #1e293b;
+  --popover: #ffffff;
+  --popover-foreground: #1e293b;
+  --primary: #1565C0;
+  --primary-foreground: #ffffff;
+  --secondary: #e3f2fd;
+  --secondary-foreground: #1565C0;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #bbdefb;
+  --accent-foreground: #1565C0;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: transparent;
+  --input-background: #ffffff;
+  --switch-background: #cbd5e1;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #1565C0;
+  --chart-1: #1565C0;
+  --chart-2: #1976D2;
+  --chart-3: #1E88E5;
+  --chart-4: #42A5F5;
+  --chart-5: #64B5F6;
+  --radius: 0.5rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1e293b;
+  --sidebar-primary: #1565C0;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #1e293b;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #1565C0;
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #334155;
+  --secondary-foreground: #f8fafc;
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+  --accent: #475569;
+  --accent-foreground: #f8fafc;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #334155;
+  --input: #334155;
+  --ring: #3b82f6;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: #3b82f6;
+  --chart-2: #60a5fa;
+  --chart-3: #93c5fd;
+  --chart-4: #dbeafe;
+  --chart-5: #eff6ff;
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #334155;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: #334155;
+  --sidebar-ring: #3b82f6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Kerala DHS Government Website Styling */
+@layer components {
+  .kerala-dhs-header {
+    background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%);
+    border-bottom: 3px solid #0D47A1;
+    box-shadow: 0 2px 8px rgba(21, 101, 192, 0.2);
+  }
+  
+  .kerala-dhs-nav {
+    background: linear-gradient(135deg, #1976D2 0%, #1565C0 100%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .kerala-dhs-nav-dropdown {
+    background: #ffffff;
+    border: 1px solid #e3f2fd;
+    box-shadow: 0 8px 32px rgba(21, 101, 192, 0.15);
+  }
+  
+  .kerala-dhs-nav-item-dropdown {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .kerala-dhs-nav-item-dropdown:hover {
+    background: #f1f5f9;
+    color: #1565C0;
+  }
+  
+  .kerala-dhs-main-header {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-bottom: 2px solid #e3f2fd;
+  }
+  
+  .kerala-dhs-top-bar {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .kerala-dhs-card {
+    background: #ffffff;
+    border: 1px solid #e3f2fd;
+    box-shadow: 0 1px 3px rgba(21, 101, 192, 0.1);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .kerala-dhs-card:hover {
+    box-shadow: 0 4px 12px rgba(21, 101, 192, 0.15);
+    border-color: #bbdefb;
+    transform: translateY(-1px);
+  }
+  
+  .kerala-dhs-sidebar {
+    background: #ffffff;
+    border-right: 1px solid #e3f2fd;
+    box-shadow: 2px 0 8px rgba(21, 101, 192, 0.05);
+  }
+  
+  .kerala-dhs-button-primary {
+    background: linear-gradient(135deg, #1565C0 0%, #1976D2 100%);
+    border: none;
+    color: #ffffff;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .kerala-dhs-button-primary:hover {
+    background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(21, 101, 192, 0.3);
+  }
+  
+  .kerala-dhs-badge {
+    background: #e3f2fd;
+    color: #1565C0;
+    border: 1px solid #bbdefb;
+    font-weight: 500;
+  }
+  
+  .kerala-dhs-accent {
+    color: #1565C0;
+    font-weight: 500;
+  }
+  
+  .kerala-dhs-nav-item {
+    transition: all 0.2s ease-in-out;
+    border-radius: 0.375rem;
+  }
+  
+  .kerala-dhs-nav-item:hover {
+    background: #f1f5f9;
+    color: #1565C0;
+  }
+  
+  .kerala-dhs-nav-item.active {
+    background: #e3f2fd;
+    color: #1565C0;
+    font-weight: 500;
+  }
+  
+  .kerala-dhs-footer {
+    background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
+    color: #ffffff;
+  }
+  
+  .kerala-dhs-alert {
+    border-left: 4px solid #1565C0;
+    background: #f8fafc;
+    border-color: #e3f2fd;
+  }
+  
+  .kerala-dhs-input {
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .kerala-dhs-input:focus {
+    border-color: #1565C0;
+    box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.1);
+  }
+  
+  .kerala-dhs-floating-button {
+    background: linear-gradient(135deg, #1565C0 0%, #1976D2 100%);
+    box-shadow: 0 8px 32px rgba(21, 101, 192, 0.3);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .kerala-dhs-floating-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(21, 101, 192, 0.4);
+    background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
+  }
+  
+  .kerala-dhs-floating-button:active {
+    transform: translateY(0) scale(1);
+  }
+  
+  @keyframes pulse-blue {
+    0%, 100% {
+      box-shadow: 0 8px 32px rgba(21, 101, 192, 0.3);
+    }
+    50% {
+      box-shadow: 0 8px 32px rgba(21, 101, 192, 0.5), 0 0 0 8px rgba(21, 101, 192, 0.1);
+    }
+  }
+  
+  .kerala-dhs-floating-button {
+    animation: pulse-blue 2s infinite;
+  }
+  
+  /* Emergency Button Styling */
+  .emergency-floating-button {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    box-shadow: 0 8px 32px rgba(220, 38, 38, 0.3);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .emergency-floating-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(220, 38, 38, 0.4);
+    background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+  }
+  
+  @keyframes pulse-red {
+    0%, 100% {
+      box-shadow: 0 8px 32px rgba(220, 38, 38, 0.3);
+    }
+    50% {
+      box-shadow: 0 8px 32px rgba(220, 38, 38, 0.5), 0 0 0 8px rgba(220, 38, 38, 0.1);
+    }
+  }
+  
+  .emergency-floating-button {
+    animation: pulse-red 2.5s infinite;
+  }
+  
+  /* Mobile Navigation Styles */
+  .kerala-dhs-mobile-nav {
+    background: linear-gradient(135deg, #1976D2 0%, #1565C0 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .kerala-dhs-mobile-nav-item {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .kerala-dhs-mobile-nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+  }
+  
+  .kerala-dhs-mobile-nav-item.active {
+    background: rgba(255, 255, 255, 0.15);
+    border-left: 3px solid #ffffff;
+  }
+  
+  /* Hamburger Menu Animations */
+  .mobile-menu-enter {
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  .mobile-menu-exit {
+    animation: slideUp 0.3s ease-in;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      max-height: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      max-height: 384px;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 1;
+      max-height: 384px;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      max-height: 0;
+      transform: translateY(-10px);
+    }
+  }
+}
+
+/* Accessibility Widget Styles */
+@layer components {
+  .accessibility-widget {
+    z-index: 40;
+  }
+  
+  .accessibility-main-button {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease-in-out;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .accessibility-main-button:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.4);
+  }
+  
+  .accessibility-panel {
+    animation: fadeIn 0.3s ease-out;
+    border: 2px solid #e5e7eb;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+/* Accessibility Settings Implementation */
+@layer utilities {
+  .accessibility-high-contrast {
+    filter: contrast(150%) brightness(110%);
+  }
+  
+  .accessibility-high-contrast * {
+    border-color: #000 !important;
+    box-shadow: none !important;
+  }
+  
+  .accessibility-high-contrast .kerala-dhs-card {
+    border: 2px solid #000 !important;
+    background: #fff !important;
+  }
+  
+  .accessibility-negative-contrast {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  
+  .accessibility-light-background {
+    background: #ffffff !important;
+  }
+  
+  .accessibility-light-background * {
+    background: inherit !important;
+    color: #000 !important;
+  }
+  
+  .accessibility-light-background .kerala-dhs-header,
+  .accessibility-light-background .kerala-dhs-nav {
+    background: #f8fafc !important;
+    color: #000 !important;
+  }
+  
+  .accessibility-links-underlined a,
+  .accessibility-links-underlined button {
+    text-decoration: underline !important;
+  }
+  
+  .accessibility-readable-font,
+  .accessibility-readable-font * {
+    font-family: 'Arial', 'Helvetica', sans-serif !important;
+    letter-spacing: 0.05em !important;
+    line-height: 1.8 !important;
+  }
+}
+
+/* Responsive Accessibility Widget */
+@media (max-width: 768px) {
+  .accessibility-widget {
+    left: 8px;
+  }
+  
+  .accessibility-panel {
+    width: calc(100vw - 100px);
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .accessibility-main-button {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .accessibility-main-button svg {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .accessibility-panel {
+    left: 64px;
+    width: calc(100vw - 80px);
+    max-width: 260px;
+  }
+}
